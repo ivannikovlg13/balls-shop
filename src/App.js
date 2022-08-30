@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Categories from './components/Categories';
+import Header from './components/Header';
+import Sort from './components/Sort';
+import BallBlock from './components/BallBlock';
+import data from './assets/data.json';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+      <Header />
+      <div className="content">
+        <div className="container">
+          <div className="content__top">
+            <Categories />
+            <Sort />
+          </div>
+          <h2 className="content__title">ALL BALLS</h2>
+          <div className="content__items">
+            {data.balls.map((obj) => (
+              <BallBlock key={obj.id} {...obj} />
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

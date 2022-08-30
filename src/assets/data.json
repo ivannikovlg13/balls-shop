@@ -1,0 +1,124 @@
+{
+  "balls": [
+    {
+      "id": 0,
+      "imageUrl": "./balls/1.jpg",
+      "name": "Adidas UCL Finale Istanbul League",
+      "types": [0, 1],
+      "sizes": [4, 5],
+      "price": 125,
+      "category": 0,
+      "rating": 4
+    },
+    {
+      "id": 1,
+      "imageUrl": "./balls/2.jpg",
+      "name": "Animals Bambi MS 3509",
+      "types": [0],
+      "sizes": [3, 4, 5],
+      "price": 30,
+      "category": 1,
+      "rating": 6
+    },
+    {
+      "id": 2,
+      "imageUrl": "./balls/3.jpg",
+      "name": "Mikasa MV210",
+      "types": [0],
+      "sizes": [4, 5],
+      "price": 140,
+      "category": 1,
+      "rating": 4
+    },
+    {
+      "id": 3,
+      "imageUrl": "./balls/4.jpg",
+      "name": "Molten V5M5000",
+      "types": [1],
+      "sizes": [3, 4, 5],
+      "price": 200,
+      "category": 2,
+      "rating": 2
+    },
+    {
+      "id": 4,
+      "imageUrl": "./balls/5.jpg",
+      "name": "Nike Dominate",
+      "types": [0, 1],
+      "sizes": [3, 4, 5],
+      "price": 250,
+      "category": 3,
+      "rating": 8
+    },
+    {
+      "id": 5,
+      "imageUrl": "./balls/6.jpg",
+      "name": "Nike Football X Premier Orange",
+      "types": [0],
+      "sizes": [4,5],
+      "price": 190,
+      "category": 2,
+      "rating": 2
+    },
+    {
+      "id": 6,
+      "imageUrl": "./balls/7.jpg",
+      "name": "Nike Futsal Pro White/Racer Blue",
+      "types": [0, 1],
+      "sizes": [3,4,5],
+      "price": 320,
+      "category": 1,
+      "rating": 9
+    },
+    {
+      "id": 7,
+      "imageUrl": "./balls/8.jpg",
+      "name": "Nike Jordan Hyper Grip",
+      "types": [0, 1],
+      "sizes": [3,4,5],
+      "price": 240,
+      "category": 4,
+      "rating": 10
+    },
+    {
+      "id": 8,
+      "imageUrl": "./balls/9.jpg",
+      "name": "Nike Strike",
+      "types": [0, 1],
+      "sizes": [3, 4, 5],
+      "price": 330,
+      "category": 5,
+      "rating": 10
+    },
+    {
+      "id": 9,
+      "imageUrl": "./balls/10.jpg",
+      "name": "Select Street Soccer - Grey-Orange",
+      "types": [0, 1],
+      "sizes": [4, 5],
+      "price": 280,
+      "category": 5,
+      "rating": 7
+    },
+    {
+      "id": 10,
+      "imageUrl": "./balls/11.jpg",
+      "name": "Nike FC Barcelona Strike",
+      "types": [0, 1],
+      "sizes": [3, 4, 5],
+      "price": 400,
+      "category": 5,
+      "rating": 8
+    },
+    {
+      "id": 11,
+      "imageUrl": "./balls/12.jpg",
+      "name": "Nike Jordan Legacy",
+      "types": [0, 1],
+      "sizes": [3, 4, 5],
+      "price": 550,
+      "category": 5,
+      "rating": 7
+    }
+  ]
+}
