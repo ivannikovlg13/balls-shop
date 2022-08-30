@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BallBlock = ({ name, imageUrl, sizes, types }) => {
+const BallBlock = ({ name, imageUrl, sizes, types, price }) => {
   const [sizeActive, setSizeActive] = React.useState(0);
   const [activeType, setActiveType] = React.useState(0);
   const typeNames = ['soft', 'hard'];
@@ -14,22 +14,28 @@ const BallBlock = ({ name, imageUrl, sizes, types }) => {
       <h4 className="ball-block__title">{name} </h4>
       <div className="ball-block__selector">
         <ul>
-          {types.map((type, i) => (
-            <li onClick={() => handleActiveType(i)} className={activeType === i ? 'active' : ''}>
-              {typeNames[type]}
+          {types.map((typeId) => (
+            <li
+              key={typeId}
+              onClick={() => handleActiveType(typeId)}
+              className={activeType === typeId ? 'active' : ''}>
+              {typeNames[typeId]}
             </li>
           ))}
         </ul>
         <ul>
           {sizes.map((size, i) => (
-            <li className={sizeActive === i ? 'active' : ''} onClick={() => setSizeActive(i)}>
+            <li
+              key={i}
+              className={sizeActive === i ? 'active' : ''}
+              onClick={() => setSizeActive(i)}>
               size: {size}
             </li>
           ))}
         </ul>
       </div>
       <div className="ball-block__bottom">
-        <div className="ball-block__price">from 50 $</div>
+        <div className="ball-block__price">from {price}$</div>
         <button className="button button--outline button--add">
           <svg
             width="12"
