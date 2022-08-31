@@ -3,6 +3,9 @@
 .sort {
   margin-left: 20px;
   position: relative;
+  @media (max-width: 768px) {
+    margin-left: auto;
+  }
   &__label {
     display: flex;
     align-items: center;
