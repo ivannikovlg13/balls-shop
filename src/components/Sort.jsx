@@ -1,19 +1,36 @@
 import React from 'react';
 
-const Sort = () => {
+const Sort = ({ selected, setSelected }) => {
+  const sortList = [
+    { name: 'popular (descending)', sortProperty: 'rating' },
+    { name: 'popular (ascending)', sortProperty: '-rating' },
+    { name: 'price (descending)', sortProperty: 'price' },
+    { name: 'price (ascending)', sortProperty: '-price' },
+    { name: 'alphabet (descending)', sortProperty: 'name' },
+    { name: 'alphabet (ascending)', sortProperty: '-name' },
+  ];
   const [visible, setVisible] = React.useState(false);
-  const [selected, setSelected] = React.useState(0);
-
-  const sortNames = ['popular', 'price', 'alphabet'];
-  const activeSelected = sortNames[selected];
   const handleActiveSort = (i) => {
     setSelected(i);
     setVisible(false);
   };
+  const sortRef = React.useRef();
+
+  const handleOutsideClick = (event) => {
+    const path = event.path || (event.composedPath && event.composedPath());
+    if (!path.includes(sortRef.current)) {
+      setVisible(false);
+    }
+  };
+
+  React.useEffect(() => {
+    document.body.addEventListener('click', handleOutsideClick);
+  }, []);
   return (
-    <div className="sort">
+    <div className="sort" ref={sortRef}>
       <div className="sort__label">
         <svg
+          className={visible ? 'rotated' : ''}
           width="10"
           height="6"
           viewBox="0 0 10 6"
@@ -25,17 +42,17 @@ const Sort = () => {
           />
         </svg>
         <b>Sort by:</b>
-        <span onClick={() => setVisible(!visible)}>{activeSelected}</span>
+        <span onClick={() => setVisible(!visible)}>{selected.name}</span>
       </div>
       {visible && (
         <div className="sort__popup">
           <ul>
-            {sortNames.map((sortId, i) => (
+            {sortList.map((obj, i) => (
               <li
                 key={i}
-                onClick={() => handleActiveSort(i)}
-                className={selected === sortId ? 'active' : ''}>
-                {sortId}
+                onClick={() => handleActiveSort(obj)}
+                className={selected.sortProperty === obj.sortProperty ? 'active' : ''}>
+                {obj.name}
               </li>
             ))}
           </ul>
