@@ -3,22 +3,27 @@
 .header {
   border-bottom: 1px solid $gray-line;
   padding: 40px 0;
-  @media (max-width: 768px) {
-    padding: 40px 0 20px;
+  @media (max-width: 1026px) {
+    padding-bottom: 0;
   }
 
   .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    @media (max-width: 768px) {
+    @media (max-width: 1026px) {
       flex-direction: column;
+      gap: 1.9rem;
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1026px) {
     &__cart {
-      margin-top: 30px;
+      margin-left: auto;
+    }
+    &__link {
+      display: block;
+      margin-right: auto;
     }
   }
 
