@@ -1,0 +1,30 @@
+.wrapper {
+  display: inline-flex;
+
+  & li + li {
+    margin-left: 0.7rem;
+  }
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #636c75;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 1px solid #636c75;
+    &:hover {
+      background-color: #636c75;
+      color: white;
+    }
+  }
+  :global {
+    .selected {
+      a {
+        background-color: #636c75;
+        color: white;
+      }
+    }
+  }
+}

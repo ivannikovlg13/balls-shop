@@ -4,11 +4,13 @@ import Sort from '../components/Sort';
 import BallBlock from '../components/BallBlock';
 import LoadingBlock from '../components/BallBlock/LoadingBlock';
 import Categories from '../components/Categories';
+import Pagination from '../components/Pagination';
 
 const Home = ({ searchValue }) => {
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [activeCategoryId, setActiveCategoryId] = React.useState(0);
+  const [indexPage, setIndexPage] = React.useState(1);
   const [selectedSort, setSelectedSort] = React.useState({
     name: 'popular(descending)',
     sortProperty: 'rating',
@@ -23,7 +25,7 @@ const Home = ({ searchValue }) => {
     const search = searchValue ? `&search=${searchValue}` : '';
     setIsLoading(true);
     fetch(
-      `https://630e35b2109c16b9abf71c53.mockapi.io/items?${category}&sortBy=${sortBy}&order=${order}${search}`,
+      `https://630e35b2109c16b9abf71c53.mockapi.io/items?&page=${indexPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`,
     )
       .then((res) => res.json())
       .then((data) => {
@@ -31,7 +33,7 @@ const Home = ({ searchValue }) => {
         setIsLoading(false);
       });
     window.scrollTo(0, 0);
-  }, [activeCategoryId, selectedSort, searchValue]);
+  }, [activeCategoryId, selectedSort, searchValue, indexPage]);
   return (
     <>
       <div className="content__top">
@@ -40,6 +42,7 @@ const Home = ({ searchValue }) => {
       </div>
       <h2 className="content__title">ALL BALLS</h2>
       <div className="content__items">{isLoading ? skeleton : balls}</div>
+      <Pagination onChangePage={(i) => setIndexPage(i)} />
     </>
   );
 };
