@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import Sort from '../components/Sort';
 import BallBlock from '../components/BallBlock';
@@ -9,14 +10,15 @@ import Pagination from '../components/Pagination';
 const Home = ({ searchValue }) => {
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
-  const [activeCategoryId, setActiveCategoryId] = React.useState(0);
+
   const [indexPage, setIndexPage] = React.useState(1);
   const [selectedSort, setSelectedSort] = React.useState({
     name: 'popular(descending)',
     sortProperty: 'rating',
   });
+  const activeCategoryId = useSelector((state) => state.filter.initialActiveCategory);
   const balls = items.map((obj) => <BallBlock key={obj.id} {...obj} />);
-  const skeleton = [...Array(12)].map((_, index) => <LoadingBlock key={index} />);
+  const skeleton = [...Array(8)].map((_, index) => <LoadingBlock key={index} />);
 
   React.useEffect(() => {
     const category = activeCategoryId > 0 ? `category=${activeCategoryId}` : '';
@@ -37,7 +39,7 @@ const Home = ({ searchValue }) => {
   return (
     <>
       <div className="content__top">
-        <Categories value={activeCategoryId} onClickCategory={(id) => setActiveCategoryId(id)} />
+        <Categories />
         <Sort selected={selectedSort} setSelected={setSelectedSort} />
       </div>
       <h2 className="content__title">ALL BALLS</h2>
