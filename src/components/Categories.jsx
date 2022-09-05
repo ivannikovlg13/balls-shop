@@ -5,7 +5,7 @@ import { activeCategory } from '../redux/slices/filterSlice';
 const Categories = () => {
   const categories = ['All', 'Soccer', 'Futsal', 'Volleyball', 'Basketball', 'Kids'];
   const dispatch = useDispatch();
-  const value = useSelector((state) => state.filter.initialActiveCategory);
+  const value = useSelector((state) => state.filter.activeCategoryId);
 
   return (
     <div className="categories">

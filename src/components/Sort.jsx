@@ -1,25 +1,31 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setSelected } from '../redux/slices/filterSlice';
 
-const Sort = ({ selected, setSelected }) => {
-  const sortList = [
-    { name: 'popular (descending)', sortProperty: 'rating' },
-    { name: 'popular (ascending)', sortProperty: '-rating' },
-    { name: 'price (descending)', sortProperty: 'price' },
-    { name: 'price (ascending)', sortProperty: '-price' },
-    { name: 'alphabet (descending)', sortProperty: 'name' },
-    { name: 'alphabet (ascending)', sortProperty: '-name' },
-  ];
+const sortList = [
+  { name: 'popular (descending)', sortProperty: 'rating' },
+  { name: 'popular (ascending)', sortProperty: '-rating' },
+  { name: 'price (descending)', sortProperty: 'price' },
+  { name: 'price (ascending)', sortProperty: '-price' },
+  { name: 'alphabet (descending)', sortProperty: 'name' },
+  { name: 'alphabet (ascending)', sortProperty: '-name' },
+];
+
+const Sort = () => {
   const [visible, setVisible] = React.useState(false);
-  const handleActiveSort = (i) => {
-    setSelected(i);
-    setVisible(false);
+  const dispatch = useDispatch();
+  const selected = useSelector((state) => state.filter.sortBy.selected);
+
+  const handleActiveSort = (obj) => {
+    dispatch(setSelected(obj));
+    setVisible(!visible);
   };
   const sortRef = React.useRef();
 
   const handleOutsideClick = (event) => {
     const path = event.path || (event.composedPath && event.composedPath());
     if (!path.includes(sortRef.current)) {
-      setVisible(false);
+      setVisible();
     }
   };
 
