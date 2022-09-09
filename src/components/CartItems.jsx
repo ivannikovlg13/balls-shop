@@ -11,20 +11,16 @@ const CartItems = ({ imageUrl, id, name, price, type, count, size }) => {
       }),
     );
   };
+  const item = {
+    id,
+    price,
+    count,
+  };
   const clickMinus = () => {
-    const item = {
-      id,
-      price,
-    };
     dispatch(onClickMinus(item));
   };
   const onRemoveItem = () => {
     if (window.confirm('Are you sure want to remove ?')) {
-      const item = {
-        id,
-        price,
-        count,
-      };
       dispatch(removeItems(item));
     }
   };

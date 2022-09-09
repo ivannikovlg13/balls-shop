@@ -1,47 +1,50 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import qs from 'qs';
 
 import { setFilters } from '../redux/slices/filterSlice';
+import { setItems } from '../redux/slices/ballsSlice';
+import { fetchBalls } from '../redux/slices/ballsSlice';
 import Sort from '../components/Sort';
 import { sortList } from '../components/Sort';
 import BallBlock from '../components/BallBlock';
 import LoadingBlock from '../components/BallBlock/LoadingBlock';
 import Categories from '../components/Categories';
 import Pagination from '../components/Pagination';
+import errorImg from '../assets/img/error.svg';
 
 const Home = ({ searchValue }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isSearch = React.useRef(false);
   const isMounted = React.useRef(false);
-  const [items, setItems] = React.useState([]);
-  const [isLoading, setIsLoading] = React.useState(true);
   const { activeCategoryId, sort, currentPage } = useSelector((state) => state.filter);
+  const { items, status } = useSelector((state) => state.balls);
   const selectedSort = sort.sortProperty;
   const balls = items.map((obj) => <BallBlock key={obj.id} {...obj} />);
   const skeleton = [...Array(8)].map((_, index) => <LoadingBlock key={index} />);
-  const fetchBalls = () => {
-    setIsLoading(true);
+
+  const getBalls = async () => {
     const category = activeCategoryId > 0 ? `category=${activeCategoryId}` : '';
     const sortBy = `${selectedSort.replace('-', '')}`;
     const order = `${selectedSort.includes('-') ? `asc` : `desc`}`;
     const search = searchValue ? `&search=${searchValue}` : '';
-    axios
-      .get(
-        `https://630e35b2109c16b9abf71c53.mockapi.io/items?&page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`,
-      )
-      .then(({ data }) => {
-        setItems(data);
-        setIsLoading(false);
-      });
+
+    dispatch(
+      fetchBalls({
+        category,
+        sortBy,
+        order,
+        search,
+        currentPage,
+      }),
+    );
+    window.scrollTo(0, 0);
   };
   React.useEffect(() => {
     if (window.location.search) {
       const params = qs.parse(window.location.search.substring(1));
-      console.log(params);
       const sort = sortList.find((obj) => obj.sortProperty === params.sortProperty);
       dispatch(
         setFilters({
@@ -67,7 +70,7 @@ const Home = ({ searchValue }) => {
   React.useEffect(() => {
     window.scrollTo(0, 0);
     if (!isSearch.current) {
-      fetchBalls();
+      getBalls();
     }
     isSearch.current = false;
   }, [activeCategoryId, selectedSort, searchValue, currentPage]);
@@ -79,7 +82,20 @@ const Home = ({ searchValue }) => {
         <Sort />
       </div>
       <h2 className="content__title">ALL BALLS</h2>
-      <div className="content__items">{isLoading ? skeleton : balls}</div>
+      {status === 'error' ? (
+        <div className="cart--error">
+          <h2>An error has occurred 😕</h2>
+          <p>
+            Sorry, we couldn't get the balls.
+            <br />
+            Please try a little later.
+          </p>
+          <img src={errorImg} alt="Empty cart" />
+        </div>
+      ) : (
+        <div className="content__items">{status === 'success' ? balls : skeleton}</div>
+      )}
+
       <Pagination currentPage={currentPage} />
     </>
   );

@@ -411,7 +411,8 @@ body {
     }
   }
 
-  &--empty {
+  &--empty,
+  &--error {
     margin: 5rem auto;
     width: 560px;
     text-align: center;
