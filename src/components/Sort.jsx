@@ -22,16 +22,16 @@ const Sort = () => {
   };
   const sortRef = React.useRef();
 
-  const handleOutsideClick = (event) => {
-    const path = event.path || (event.composedPath && event.composedPath());
-    if (!path.includes(sortRef.current)) {
-      setVisible();
-    }
-  };
-
   React.useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (!event.path.includes(sortRef.current)) {
+        setVisible();
+      }
+    };
     document.body.addEventListener('click', handleOutsideClick);
+    return () => document.body.removeEventListener('click', handleOutsideClick);
   }, []);
+
   return (
     <div className="sort" ref={sortRef}>
       <div className="sort__label">
