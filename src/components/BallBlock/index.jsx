@@ -1,6 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { addItems } from '../../redux/slices/cartSlice';
+import { selectCartItemById } from '../../redux/slices/cartSlice';
 
 const typeNames = ['soft', 'hard'];
 
@@ -8,7 +10,7 @@ const BallBlock = ({ id, name, imageUrl, sizes, types, price }) => {
   const [sizeActive, setSizeActive] = React.useState(0);
   const [activeType, setActiveType] = React.useState(0);
   const dispatch = useDispatch();
-  const cartItem = useSelector((state) => state.cart.items.find((obj) => obj.id === id));
+  const cartItem = useSelector(selectCartItemById(id));
   const addedCount = cartItem ? cartItem.count : 0;
 
   const handleActiveType = (i) => {
@@ -27,8 +29,11 @@ const BallBlock = ({ id, name, imageUrl, sizes, types, price }) => {
   };
   return (
     <div className="ball-block">
-      <img className="ball-block__image" src={imageUrl} alt="ball" />
-      <h4 className="ball-block__title">{name} </h4>
+      <Link to={`/ball/${id}`}>
+        <img className="ball-block__image" src={imageUrl} alt="ball" />
+        <h4 className="ball-block__title">{name} </h4>
+      </Link>
+
       <div className="ball-block__selector">
         <ul>
           {types.map((typeId) => (

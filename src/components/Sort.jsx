@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setSelected } from '../redux/slices/filterSlice';
+import { selectSortName, setSelected } from '../redux/slices/filterSlice';
 
 export const sortList = [
   { name: 'popular (descending)', sortProperty: 'rating' },
@@ -14,7 +14,7 @@ export const sortList = [
 const Sort = () => {
   const [visible, setVisible] = React.useState(false);
   const dispatch = useDispatch();
-  const selected = useSelector((state) => state.filter.sort.name);
+  const selected = useSelector(selectSortName);
 
   const handleActiveSort = (obj) => {
     dispatch(setSelected(obj));

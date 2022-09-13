@@ -450,3 +450,48 @@ body {
     }
   }
 }
+.fullBall {
+  padding: 4rem 0;
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+  @media (max-width: 768px) {
+    display: block;
+    text-align: center;
+  }
+  &-info {
+    max-width: 350px;
+    width: 100%;
+    @media (max-width: 768px) {
+      min-width: 100%;
+    }
+  }
+  &-img {
+    width: 300px;
+    @media (max-width: 768px) {
+      width: 150px;
+      height: 150px;
+    }
+  }
+  &-name {
+    font-size: 24px;
+    font-weight: 900;
+    margin: 1rem 0;
+  }
+  &-price {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    b {
+      margin-left: auto;
+    }
+    img {
+      height: 22px;
+    }
+    span {
+      color: #636c75;
+      font-weight: 600;
+    }
+  }
+}

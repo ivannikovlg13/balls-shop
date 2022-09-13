@@ -37,5 +37,7 @@ export const ballsSlice = createSlice({
   },
 });
 
+export const selectBalls = (state) => state.balls;
+
 export const { setItems } = ballsSlice.actions;
 export default ballsSlice.reducer;

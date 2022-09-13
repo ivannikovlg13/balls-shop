@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import qs from 'qs';
 
-import { setFilters } from '../redux/slices/filterSlice';
-import { setItems } from '../redux/slices/ballsSlice';
+import { selectFilter, setFilters } from '../redux/slices/filterSlice';
+import { selectBalls, setItems } from '../redux/slices/ballsSlice';
 import { fetchBalls } from '../redux/slices/ballsSlice';
 import Sort from '../components/Sort';
 import { sortList } from '../components/Sort';
@@ -14,13 +14,13 @@ import Categories from '../components/Categories';
 import Pagination from '../components/Pagination';
 import errorImg from '../assets/img/error.svg';
 
-const Home = ({ searchValue }) => {
+const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isSearch = React.useRef(false);
   const isMounted = React.useRef(false);
-  const { activeCategoryId, sort, currentPage } = useSelector((state) => state.filter);
-  const { items, status } = useSelector((state) => state.balls);
+  const { activeCategoryId, sort, currentPage, searchValue } = useSelector(selectFilter);
+  const { items, status } = useSelector(selectBalls);
   const selectedSort = sort.sortProperty;
   const balls = items.map((obj) => <BallBlock key={obj.id} {...obj} />);
   const skeleton = [...Array(8)].map((_, index) => <LoadingBlock key={index} />);
