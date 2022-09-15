@@ -6,14 +6,23 @@ import { selectCartItemById } from '../../redux/slices/cartSlice';
 
 const typeNames = ['soft', 'hard'];
 
-const BallBlock = ({ id, name, imageUrl, sizes, types, price }) => {
+type BallBlockProps = {
+  id: string;
+  name: string;
+  imageUrl: string;
+  sizes: number[];
+  types: number[];
+  price: number;
+};
+
+const BallBlock: React.FC<BallBlockProps> = ({ id, name, imageUrl, sizes, types, price }) => {
   const [sizeActive, setSizeActive] = React.useState(0);
   const [activeType, setActiveType] = React.useState(0);
   const dispatch = useDispatch();
   const cartItem = useSelector(selectCartItemById(id));
   const addedCount = cartItem ? cartItem.count : 0;
 
-  const handleActiveType = (i) => {
+  const handleActiveType = (i: any) => {
     setActiveType(i);
   };
   const onClickAdd = () => {

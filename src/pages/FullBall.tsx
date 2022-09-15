@@ -2,8 +2,9 @@ import React from 'react';
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 
+import star from '../assets/img/star.svg';
+
 const FullBall: React.FC = () => {
-  const star = require('../assets/img/star.svg');
   const { id } = useParams();
   const [ball, setBall] = React.useState<{
     imageUrl: string;

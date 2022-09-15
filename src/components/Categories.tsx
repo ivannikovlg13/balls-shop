@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { activeCategory, selectActiveCategoryId } from '../redux/slices/filterSlice';
 
-const Categories = () => {
+const Categories: React.FC = () => {
   const categories = ['All', 'Soccer', 'Futsal', 'Volleyball', 'Basketball', 'Kids'];
   const dispatch = useDispatch();
   const value = useSelector(selectActiveCategoryId);
