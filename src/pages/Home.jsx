@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import qs from 'qs';
 
 import { selectFilter, setFilters } from '../redux/slices/filterSlice';
-import { selectBalls, setItems } from '../redux/slices/ballsSlice';
+import { selectBalls } from '../redux/slices/ballsSlice';
 import { fetchBalls } from '../redux/slices/ballsSlice';
 import Sort from '../components/Sort';
 import { sortList } from '../components/Sort';

@@ -416,6 +416,9 @@ body {
     margin: 5rem auto;
     width: 560px;
     text-align: center;
+    @media (max-width: 768px) {
+      width: 300px;
+    }
 
     h2 {
       font-size: 32px;
