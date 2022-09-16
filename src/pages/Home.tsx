@@ -1,10 +1,10 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import qs from 'qs';
 
 import { selectFilter, setFilters } from '../redux/slices/filterSlice';
-import { selectBalls } from '../redux/slices/ballsSlice';
+import { SearchBallParams, selectBalls } from '../redux/slices/ballsSlice';
 import { fetchBalls } from '../redux/slices/ballsSlice';
 import Sort from '../components/Sort';
 import { sortList } from '../components/Sort';
@@ -13,9 +13,10 @@ import LoadingBlock from '../components/BallBlock/LoadingBlock';
 import Categories from '../components/Categories';
 import Pagination from '../components/Pagination';
 import errorImg from '../assets/img/error.svg';
+import { useAppDispatch } from '../redux/store';
 
 const Home: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const isSearch = React.useRef(false);
   const isMounted = React.useRef(false);
@@ -32,25 +33,26 @@ const Home: React.FC = () => {
     const search = searchValue ? `&search=${searchValue}` : '';
 
     dispatch(
-      //@ts-ignore
       fetchBalls({
         category,
         sortBy,
         order,
         search,
-        currentPage,
+        currentPage: String(currentPage),
       }),
     );
     window.scrollTo(0, 0);
   };
   React.useEffect(() => {
     if (window.location.search) {
-      const params = qs.parse(window.location.search.substring(1));
-      const sort = sortList.find((obj) => obj.sortProperty === params.sortProperty);
+      const params = qs.parse(window.location.search.substring(1)) as unknown as SearchBallParams;
+      const sort = sortList.find((obj) => obj.sortProperty === params.sortBy);
       dispatch(
         setFilters({
-          ...params,
-          sort,
+          searchValue: params.search,
+          activeCategoryId: Number(params.category),
+          currentPage: Number(params.currentPage),
+          sort: sort || sortList[0],
         }),
       );
       isSearch.current = true;

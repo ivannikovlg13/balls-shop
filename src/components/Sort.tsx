@@ -1,22 +1,22 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectSortName, setSelected } from '../redux/slices/filterSlice';
+import { selectSortName, setSelected, SortPropertyEnum } from '../redux/slices/filterSlice';
 
 type SortItem = {
   name: string;
-  sortProperty: string;
+  sortProperty: SortPropertyEnum;
 };
 
 export const sortList: SortItem[] = [
-  { name: 'popular (descending)', sortProperty: 'rating' },
-  { name: 'popular (ascending)', sortProperty: '-rating' },
-  { name: 'price (descending)', sortProperty: 'price' },
-  { name: 'price (ascending)', sortProperty: '-price' },
-  { name: 'alphabet (descending)', sortProperty: 'name' },
-  { name: 'alphabet (ascending)', sortProperty: '-name' },
+  { name: 'popular (descending)', sortProperty: SortPropertyEnum.RATING_DESC },
+  { name: 'popular (ascending)', sortProperty: SortPropertyEnum.RATING_ASC },
+  { name: 'price (descending)', sortProperty: SortPropertyEnum.PRICE_DESC },
+  { name: 'price (ascending)', sortProperty: SortPropertyEnum.PRICE_ASC },
+  { name: 'alphabet (descending)', sortProperty: SortPropertyEnum.NAME_DESC },
+  { name: 'alphabet (ascending)', sortProperty: SortPropertyEnum.NAME_ASC },
 ];
 
-const Sort = () => {
+const SortPopup = () => {
   const [visible, setVisible] = React.useState(false);
   const dispatch = useDispatch();
   const selected = useSelector(selectSortName);
@@ -28,9 +28,12 @@ const Sort = () => {
   const sortRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
-    const handleOutsideClick = (event: any) => {
-      if (!event.path.includes(sortRef.current)) {
-        setVisible(true);
+    const handleOutsideClick = (event: MouseEvent) => {
+      const _event = event as MouseEvent & {
+        path: Node[];
+      };
+      if (sortRef.current && !_event.path.includes(sortRef.current)) {
+        setVisible(false);
       }
     };
     document.body.addEventListener('click', handleOutsideClick);
@@ -62,7 +65,7 @@ const Sort = () => {
               <li
                 key={i}
                 onClick={() => handleActiveSort(obj)}
-                className={selected.sortProperty === obj.sortProperty ? 'active' : ''}>
+                className={selected === obj.sortProperty ? 'active' : ''}>
                 {obj.name}
               </li>
             ))}
@@ -73,4 +76,4 @@ const Sort = () => {
   );
 };
 
-export default Sort;
+export default SortPopup;

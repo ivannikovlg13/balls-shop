@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { addItems } from '../../redux/slices/cartSlice';
+import { addItems, CartItem } from '../../redux/slices/cartSlice';
 import { selectCartItemById } from '../../redux/slices/cartSlice';
 
 const typeNames = ['soft', 'hard'];
@@ -26,13 +26,14 @@ const BallBlock: React.FC<BallBlockProps> = ({ id, name, imageUrl, sizes, types,
     setActiveType(i);
   };
   const onClickAdd = () => {
-    const item = {
+    const item: CartItem = {
       id,
       name,
       imageUrl,
       price,
       type: typeNames[activeType],
       size: sizes[sizeActive],
+      count: 0,
     };
     dispatch(addItems(item));
   };

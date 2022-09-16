@@ -24,9 +24,9 @@ const Search: React.FC = () => {
     }, 200),
     [],
   );
-  const handleSearchValue = (str: string) => {
-    updateSearchValue(str);
-    setValue(str);
+  const handleSearchValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+    updateSearchValue(event.target.value);
+    setValue(event.target.value);
   };
   return (
     <div className={styles.root}>
@@ -34,7 +34,7 @@ const Search: React.FC = () => {
       <input
         ref={inputRef}
         value={value}
-        onChange={(e) => handleSearchValue(e.target.value)}
+        onChange={handleSearchValue}
         className={styles.input}
         placeholder="Search balls..."
       />
