@@ -14,7 +14,7 @@ import Categories from '../components/Categories';
 import Pagination from '../components/Pagination';
 import errorImg from '../assets/img/error.svg';
 
-const Home = () => {
+const Home: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isSearch = React.useRef(false);
@@ -22,7 +22,7 @@ const Home = () => {
   const { activeCategoryId, sort, currentPage, searchValue } = useSelector(selectFilter);
   const { items, status } = useSelector(selectBalls);
   const selectedSort = sort.sortProperty;
-  const balls = items.map((obj) => <BallBlock key={obj.id} {...obj} />);
+  const balls = items.map((obj: any) => <BallBlock key={obj.id} {...obj} />);
   const skeleton = [...Array(8)].map((_, index) => <LoadingBlock key={index} />);
 
   const getBalls = async () => {
@@ -32,6 +32,7 @@ const Home = () => {
     const search = searchValue ? `&search=${searchValue}` : '';
 
     dispatch(
+      //@ts-ignore
       fetchBalls({
         category,
         sortBy,
