@@ -3,9 +3,11 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import qs from 'qs';
 
-import { selectFilter, setFilters } from '../redux/slices/filterSlice';
-import { SearchBallParams, selectBalls } from '../redux/slices/ballsSlice';
-import { fetchBalls } from '../redux/slices/ballsSlice';
+import { selectFilter } from '../redux/filter/selectors';
+import { setFilters } from '../redux/filter/slice';
+import { selectBalls } from '../redux/balls/selectors';
+import { fetchBalls } from '../redux/balls/asyncActions';
+import { SearchBallParams } from '../redux/balls/types';
 import Sort from '../components/Sort';
 import { sortList } from '../components/Sort';
 import BallBlock from '../components/BallBlock';

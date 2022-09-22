@@ -1,12 +1,13 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { activeCategory, selectActiveCategoryId } from '../redux/slices/filterSlice';
+import { activeCategory } from '../redux/filter/slice';
+import { selectActiveCategoryId } from '../redux/filter/selectors';
 
-const Categories: React.FC = () => {
-  const categories = ['All', 'Soccer', 'Futsal', 'Volleyball', 'Basketball', 'Kids'];
+const categories = ['All', 'Soccer', 'Futsal', 'Volleyball', 'Basketball', 'Kids'];
+
+const Categories: React.FC = React.memo(() => {
   const dispatch = useDispatch();
   const value = useSelector(selectActiveCategoryId);
-
   return (
     <div className="categories">
       <ul>
@@ -21,6 +22,6 @@ const Categories: React.FC = () => {
       </ul>
     </div>
   );
-};
+});
 
 export default Categories;

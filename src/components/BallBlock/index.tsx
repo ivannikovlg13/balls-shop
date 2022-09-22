@@ -1,8 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { addItems, CartItem } from '../../redux/slices/cartSlice';
-import { selectCartItemById } from '../../redux/slices/cartSlice';
+import { addItems } from '../../redux/cart/slice';
+import { selectCartItemById } from '../../redux/cart/selectors';
+import { CartItem } from '../../redux/cart/types';
 
 const typeNames = ['soft', 'hard'];
 
