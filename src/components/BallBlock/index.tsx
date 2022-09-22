@@ -16,7 +16,14 @@ type BallBlockProps = {
   price: number;
 };
 
-const BallBlock: React.FC<BallBlockProps> = ({ id, name, imageUrl, sizes, types, price }) => {
+export const BallBlock: React.FC<BallBlockProps> = ({
+  id,
+  name,
+  imageUrl,
+  sizes,
+  types,
+  price,
+}) => {
   const [sizeActive, setSizeActive] = React.useState(0);
   const [activeType, setActiveType] = React.useState(0);
   const dispatch = useDispatch();
@@ -88,5 +95,3 @@ const BallBlock: React.FC<BallBlockProps> = ({ id, name, imageUrl, sizes, types,
     </div>
   );
 };
-
-export default BallBlock;

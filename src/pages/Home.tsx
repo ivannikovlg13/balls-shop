@@ -8,12 +8,8 @@ import { setFilters } from '../redux/filter/slice';
 import { selectBalls } from '../redux/balls/selectors';
 import { fetchBalls } from '../redux/balls/asyncActions';
 import { SearchBallParams } from '../redux/balls/types';
-import Sort from '../components/Sort';
-import { sortList } from '../components/Sort';
-import BallBlock from '../components/BallBlock';
-import LoadingBlock from '../components/BallBlock/LoadingBlock';
-import Categories from '../components/Categories';
-import Pagination from '../components/Pagination';
+import { SortPopup, BallBlock, LoadingBlock, Pagination, Categories } from '../components';
+import { sortList } from '../components/SortPopup';
 import errorImg from '../assets/img/error.svg';
 import { useAppDispatch } from '../redux/store';
 
@@ -84,7 +80,7 @@ const Home: React.FC = () => {
     <>
       <div className="content__top">
         <Categories />
-        <Sort />
+        <SortPopup />
       </div>
       <h2 className="content__title">ALL BALLS</h2>
       {status === 'error' ? (

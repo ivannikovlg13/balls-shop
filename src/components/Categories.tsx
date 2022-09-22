@@ -5,7 +5,7 @@ import { selectActiveCategoryId } from '../redux/filter/selectors';
 
 const categories = ['All', 'Soccer', 'Futsal', 'Volleyball', 'Basketball', 'Kids'];
 
-const Categories: React.FC = React.memo(() => {
+export const Categories: React.FC = React.memo(() => {
   const dispatch = useDispatch();
   const value = useSelector(selectActiveCategoryId);
   return (
@@ -23,5 +23,3 @@ const Categories: React.FC = React.memo(() => {
     </div>
   );
 });
-
-export default Categories;
