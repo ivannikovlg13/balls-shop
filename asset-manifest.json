@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/balls-shop/static/css/main.cbcce453.css",
+    "main.js": "/balls-shop/static/js/main.6dd697b8.js",
+    "NotFound.js": "/balls-shop/static/js/NotFound.a198a9f6.chunk.js",
+    "Cart.js": "/balls-shop/static/js/Cart.2c093c96.chunk.js",
+    "FullBall.js": "/balls-shop/static/js/FullBall.163146ee.chunk.js",
+    "static/media/ProximaNova-Regular.eot": "/balls-shop/static/media/ProximaNova-Regular.d97f8f32c098b28c3ab0.eot",
+    "static/media/ProximaNova-Regular.ttf": "/balls-shop/static/media/ProximaNova-Regular.b078618b41b9b6629ea0.ttf",
+    "static/media/ProximaNova-Bold.eot": "/balls-shop/static/media/ProximaNova-Bold.787088b281e017f8c449.eot",
+    "static/media/ProximaNova-Extrabld.eot": "/balls-shop/static/media/ProximaNova-Extrabld.b9fcd9fbe4d0b5e73cbd.eot",
+    "static/media/ProximaNova-Bold.ttf": "/balls-shop/static/media/ProximaNova-Bold.7722451a8c88b6100185.ttf",
+    "static/media/ProximaNova-Extrabld.ttf": "/balls-shop/static/media/ProximaNova-Extrabld.026a945d32b05c6c8710.ttf",
+    "static/media/ProximaNova-Black.eot": "/balls-shop/static/media/ProximaNova-Black.9a114cea74aac9cc06cc.eot",
+    "static/media/ProximaNova-Black.ttf": "/balls-shop/static/media/ProximaNova-Black.5335144c30bdc79a2d6d.ttf",
+    "static/media/ProximaNova-Regular.woff": "/balls-shop/static/media/ProximaNova-Regular.99528640efded3e12591.woff",
+    "static/media/ProximaNova-Bold.woff": "/balls-shop/static/media/ProximaNova-Bold.1f267da183b3d4fe3d5b.woff",
+    "static/media/ProximaNova-Extrabld.woff": "/balls-shop/static/media/ProximaNova-Extrabld.64f095e95e4018946cb1.woff",
+    "static/media/ProximaNova-Black.woff": "/balls-shop/static/media/ProximaNova-Black.131eab64b8a971a4fc73.woff",
+    "static/media/logo.svg": "/balls-shop/static/media/logo.e9b95d024e0d8aeab33b7df53958ea3c.svg",
+    "static/media/empty-cart.svg": "/balls-shop/static/media/empty-cart.8ad4a893cfb09f4d242e41abd720ca99.svg",
+    "static/media/error.svg": "/balls-shop/static/media/error.bf612eb7574acc8b1c7b777577e2d667.svg",
+    "static/media/search.svg": "/balls-shop/static/media/search.d51affc70ae9c372689ca5504c103c03.svg",
+    "index.html": "/balls-shop/index.html",
+    "static/media/close.svg": "/balls-shop/static/media/close.ae91eb53624b4a8a411c57a99bd9c47b.svg",
+    "static/media/star.svg": "/balls-shop/static/media/star.caa9d3c08998dc1aaabd2d4785a2f24d.svg",
+    "main.cbcce453.css.map": "/balls-shop/static/css/main.cbcce453.css.map",
+    "main.6dd697b8.js.map": "/balls-shop/static/js/main.6dd697b8.js.map",
+    "NotFound.a198a9f6.chunk.js.map": "/balls-shop/static/js/NotFound.a198a9f6.chunk.js.map",
+    "Cart.2c093c96.chunk.js.map": "/balls-shop/static/js/Cart.2c093c96.chunk.js.map",
+    "FullBall.163146ee.chunk.js.map": "/balls-shop/static/js/FullBall.163146ee.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cbcce453.css",
+    "static/js/main.6dd697b8.js"
+  ]
+}

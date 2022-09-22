@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkballs_shop=self.webpackChunkballs_shop||[]).push([[187],{4949:function(n,u,s){s.r(u),s.d(u,{NotFound:function(){return r}});var t=s(3231),e=s(184),r=function(){return(0,e.jsx)(t.vr,{})};u.default=r}}]);
+//# sourceMappingURL=NotFound.a198a9f6.chunk.js.map
