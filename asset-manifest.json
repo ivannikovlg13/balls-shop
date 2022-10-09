@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/balls-shop/static/css/main.ce8df19e.css",
-    "main.js": "/balls-shop/static/js/main.65df5456.js",
+    "main.js": "/balls-shop/static/js/main.04e4b623.js",
     "NotFound.js": "/balls-shop/static/js/NotFound.a198a9f6.chunk.js",
     "Cart.js": "/balls-shop/static/js/Cart.71ea46c9.chunk.js",
     "FullBall.js": "/balls-shop/static/js/FullBall.56838730.chunk.js",
@@ -25,13 +25,13 @@
     "static/media/close.svg": "/balls-shop/static/media/close.ae91eb53624b4a8a411c57a99bd9c47b.svg",
     "static/media/star.svg": "/balls-shop/static/media/star.caa9d3c08998dc1aaabd2d4785a2f24d.svg",
     "main.ce8df19e.css.map": "/balls-shop/static/css/main.ce8df19e.css.map",
-    "main.65df5456.js.map": "/balls-shop/static/js/main.65df5456.js.map",
+    "main.04e4b623.js.map": "/balls-shop/static/js/main.04e4b623.js.map",
     "NotFound.a198a9f6.chunk.js.map": "/balls-shop/static/js/NotFound.a198a9f6.chunk.js.map",
     "Cart.71ea46c9.chunk.js.map": "/balls-shop/static/js/Cart.71ea46c9.chunk.js.map",
     "FullBall.56838730.chunk.js.map": "/balls-shop/static/js/FullBall.56838730.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ce8df19e.css",
-    "static/js/main.65df5456.js"
+    "static/js/main.04e4b623.js"
   ]
 }
